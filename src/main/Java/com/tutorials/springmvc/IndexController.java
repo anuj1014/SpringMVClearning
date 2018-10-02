@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class IndexController {
 
-    @RequestMapping(value="/login")
+    @RequestMapping(value="/index")
     public String hellowspring(){
-        return "login";
+        return "index";
     }
 }

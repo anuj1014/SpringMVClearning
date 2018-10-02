@@ -8,17 +8,17 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <title>Login Form</title>
-</head>
-<body>
-<form>
-    First name:
-    <input type="text" name="firstname"><br>
-    Last name:
-    <input type="password" name="password"><br>
-    <button type="button" name="login">Login</button><br>
+    <head>
+        <title>Login Form</title>
+    </head>
 
-</form>
-</body>
+    <body>
+        <form method="post" action="/login">
+            Name:
+             <input type="text" name="name"><br>
+            Password:
+            <input type="password" name="password"><br>
+            <button type="submit" name="login">Login</button><br>
+        </form>
+    </body>
 </html>
