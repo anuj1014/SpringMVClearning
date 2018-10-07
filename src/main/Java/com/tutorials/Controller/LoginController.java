@@ -1,4 +1,4 @@
-package com.tutorials.springmvc;
+package com.tutorials.Controller;
 
 import com.tutorials.services.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
