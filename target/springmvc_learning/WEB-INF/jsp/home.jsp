@@ -11,6 +11,8 @@
     <title>Welcome Bro...</title>
 </head>
 <body>
-<p>Welcome ${name} ...... "${password}"</p>
+<p>Welcome ${name} ...... "${password}"</p><br>
+<p><a href="list-todos.jsp">Todos manager</a></p>
 </body>
 </html>
+<context:component-scan base-package="com.tutorials.Controller"/>
