@@ -26,7 +26,7 @@
             <fieldset>
                 <form:label path="user">User</form:label>
                 <form:input path="user" type="text" required="required"/>
-
+                <form:errors path="user" />
             </fieldset>
             <button name="add" value="submit">Submit</button>
         </form:form>

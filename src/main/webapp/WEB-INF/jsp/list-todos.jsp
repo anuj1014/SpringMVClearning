@@ -13,7 +13,7 @@
     </head>
 
     <body>
-        <p>Welcome ${name} ...... "${password}"</p><br
+        <p>Welcome ${name} ...... "${password}"</p><br>
 
         <p> Your Todos are </p> <br>
 
@@ -24,6 +24,7 @@
                 <td>User</td>
                 <td>Description</td>
                 <td>IsDone</td>
+                <td></td>
                 <td></td>
             </tr>
             </thead>
@@ -37,6 +38,7 @@
                         <td>${todovar.user}</td>
                         <td>${todovar.desc}</td>
                         <td>${todovar.done}</td>
+                    <td><a href="/update-todos?id=${todovar.id}"><button value="Update">Update</button></a></td>
                     <td><a href="/delete-todos?id=${todovar.id}"><button value="Delete">Delete</button></a></td>
                 </TR><br>
 

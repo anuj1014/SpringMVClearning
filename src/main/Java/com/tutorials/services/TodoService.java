@@ -38,6 +38,22 @@ static{
                 }
         }
 
+        public void update(Todo todo){
+
+        todoList.remove(todo);
+        todoList.add(todo);
+        }
+
+        public Todo retrievetodo(int id){
+            Iterator<Todo> iterator = todoList.iterator();
+                while (iterator.hasNext()){
+                    Todo todo =iterator.next();
+                    if(todo.getId()==id)
+                return todo;
+                 }
+            return null;
+        }
+
         public List retrieve(String user){
 
             List<Todo> filteredlist = new ArrayList<Todo>();

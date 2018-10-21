@@ -1,10 +1,9 @@
 <html>
-<body>
-<h2>Hello World!</h2>
-<h2>Hello World!</h2>
-<a href="/login">Login Page</a><br>
-<a href="/login">Index Page</a><br>
-<a href="/home">HomePage</a><br>
-
-</body>
+    <head>
+        <title>Welcome to Student Management System</title>
+    </head>
+    <body>
+        <h1>Welcome to Student Management System</h1><br>
+        <a href="/login">Login Page</a><br>
+    </body>
 </html>

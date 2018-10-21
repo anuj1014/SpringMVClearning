@@ -11,15 +11,20 @@
     <head>
         <title>Login Form</title>
     </head>
-
     <body>
-    <p > <font color="red"> ${errormessage}</font></p><br>
-        <form method="post" action="/login">
-            Name:
-             <input type="text" name="name"><br>
-            Password:
-            <input type="password" name="password"><br>
-            <button type="submit" name="login">Login</button><br>
-        </form>
+         <p>${errormessage}</p><br>
+         <form method="post" action="/login">
+                <table>
+                    <tr>
+                        <td>Name</td>
+                        <td><input type="text" name="name"></td>
+                    </tr>
+                    <tr>
+                        <td>Password :</td>
+                        <td><input type="password" name="password"></td>
+                    </tr>
+                </table>
+                <button type="submit" name="login">Login</button><br>
+         </form>
     </body>
 </html>

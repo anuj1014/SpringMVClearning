@@ -1,11 +1,14 @@
 package com.tutorials.Classes;
 
+import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.Objects;
 
 public class Todo {
 
     private int id;
+
+    @Size(min=6, max=10, message = "Enter atleast 6 Characters")
     private String user;
 
     public Todo(){
@@ -26,6 +29,7 @@ public class Todo {
     public void setId(int id) {
         this.id = id;
     }
+
 
     public String getUser() {
         return user;
