@@ -1,6 +1,13 @@
 package com.tutorials.Classes;
 
+
+
 import org.springframework.stereotype.Component;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Component
 public class Student {
@@ -8,6 +15,20 @@ public class Student {
     public Student(){}
 
     private String studentName;
+    private String city;
+    @Size(min = 4, max = 18,message = "Please enter valid Country Name")
+    private String country;
+
+
+    @Min(value =3, message = "Pincode Should not be less than 3 Characters")
+    //@Max(value = 6, message = "Pincode Should not be greater than 6 Characters")
+    private int pincode;
+
+    private String hobbies;
+    @NotNull(message = "Please select Gender")
+    private String gender;
+
+    private CourseDetails courseDetails;
 
     public String getStudentName() {
         return studentName;
@@ -41,10 +62,7 @@ public class Student {
         this.pincode = pincode;
     }
 
-    private String city;
-    private String country;
-    private int pincode;
-    private String hobbies;
+
 
     public String getHobbies() {
         return hobbies;
@@ -52,5 +70,21 @@ public class Student {
 
     public void setHobbies(String hobbies) {
         this.hobbies = hobbies;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public CourseDetails getCourseDetails() {
+        return courseDetails;
+    }
+
+    public void setCourseDetails(CourseDetails courseDetails) {
+        this.courseDetails = courseDetails;
     }
 }

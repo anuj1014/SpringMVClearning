@@ -2,16 +2,18 @@ package com.tutorials.Controller;
 
 
 import com.tutorials.Classes.Student;
+import com.tutorials.Support.StudentNameSupport;
 import com.tutorials.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.naming.Binding;
+import javax.validation.Valid;
 
 
 @Controller
@@ -22,6 +24,12 @@ public class StudentController {
     @Autowired
     Student student;
 
+
+    @InitBinder
+    public void initBinder(WebDataBinder binder){
+        binder.setDisallowedFields(new String[]{"city"});
+        binder.registerCustomEditor(String.class,"studentName",new StudentNameSupport());
+    }
 
     @RequestMapping(value = "StudentRegistration")
     public String studentRegistration(ModelAndView modelAndView){
@@ -36,6 +44,7 @@ public class StudentController {
                               @RequestParam ("country") String country,
                               @RequestParam ("pincode") int pincode,
                               @RequestParam ("hobbies") String hobbies,
+                              @RequestParam("gender") String gender,
                               ModelMap modelMap){
 
         student.setStudentName(studentName);
@@ -43,6 +52,7 @@ public class StudentController {
         student.setCity(city);
         student.setPincode(pincode);
         student.setHobbies(hobbies);
+        student.setGender(gender);
         ModelAndView model = new ModelAndView("StudentDetails");
         model.addObject(student);
 
@@ -52,16 +62,28 @@ public class StudentController {
         return model;
     }*/
 
+    //Second Method using @ModelAttribute annotation
+
+
+    /*@ModelAttribute
+    public ModelMap Show(ModelMap modelMap){
+        modelMap.addAttribute("Welcome","Welcome to STMS");
+        return modelMap;
+    }*/
+
+
     @RequestMapping(value = "StudentDetails", method=RequestMethod.POST)
-    public ModelAndView showStudent(@ModelAttribute("student1") Student student){
-        ModelAndView model = new ModelAndView("StudentDetails");
-        model.addObject(student);
+    public ModelAndView showStudent(@Valid @ModelAttribute("student1") Student student, BindingResult result){
+        if(result.hasErrors()){
+            ModelAndView model = new ModelAndView("StudentRegistration");
+            model.addObject(result);
+            return model;
+        }else {
 
-        //Second Way to Use ModelAndView
-        /*modelMap.addAttribute("student" ,student);
-        return  new ModelAndView("StudentDetails",modelMap);*/
-        return model;
+            ModelAndView model = new ModelAndView("StudentDetails");
+            model.addObject(student);
+            return model;
+        }
     }
-
 
 }

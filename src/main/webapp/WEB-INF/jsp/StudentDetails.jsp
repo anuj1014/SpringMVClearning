@@ -13,7 +13,7 @@
     <body>
         <h1>Details of Student are :</h1>
 
-        <table>
+        <table bgcolor="#ff7f50" border="<textarea name="area" id="" cols="30" rows="10"></textarea>">
             <tr>
                 <td>Student Name</td>
                 <td>${student.studentName} ${studentName}</td>
@@ -33,6 +33,18 @@
             <tr>
                 <td>Hobbies</td>
                 <td>${student.hobbies}</td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>${student.gender}</td>
+            </tr>
+            <tr>
+                <td>Department</td>
+                <td>${student.courseDetails.department}</td>
+            </tr>
+            <tr>
+                <td>Year</td>
+                <td>${student.courseDetails.year}</td>
             </tr>
         </table>
     </body>
